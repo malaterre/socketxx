@@ -13,6 +13,7 @@
 
 #include <socket++/sockstream.h>
 #ifndef WIN32
+#	include <windows.h> // MM: ???
 #	include <netinet/in.h>
 #endif // !WIN32
 
