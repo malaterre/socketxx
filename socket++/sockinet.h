@@ -11,6 +11,7 @@
 #ifndef _SOCKINET_H
 #define	_SOCKINET_H
 
+#include "local.h"
 #include <socket++/sockstream.h>
 #ifndef WIN32
 #	include <windows.h> // MM: ???
@@ -45,7 +46,7 @@ public:
   const char*         gethostname() const;
 };
 
-class sockinetbuf: public sockbuf {
+class MY_API sockinetbuf: public sockbuf {
 public:
   enum domain { af_inet = AF_INET };
     
@@ -123,7 +124,7 @@ public:
   sockinetbuf*	      operator -> () { return rdbuf (); }
 };
 
-class iosockinet: public iosockstream
+class MY_API iosockinet: public iosockstream
 {
 public:
                       iosockinet (const sockbuf::sockdesc& sd);

@@ -33,6 +33,8 @@
 #ifndef _SOCKSTREAM_H
 #define	_SOCKSTREAM_H
 
+#include "local.h"
+
 #include <iostream> // must be ANSI compatible
 #include <cstddef>
 #include <ctype.h>
@@ -47,6 +49,7 @@
 #	define SOCKET int
 #	define SOCKET_ERROR -1
 #else
+#	include <windows.h>
 #	include <wininet.h>
 #	pragma comment(lib, "Wininet")
 #endif
@@ -56,7 +59,7 @@
 #endif // __linux__
 
 // socket exception classes
-class sockerr {
+class MY_API sockerr {
   int  err;
   std::string text;
 public:

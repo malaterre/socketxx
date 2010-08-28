@@ -1,0 +1,17 @@
+***************
+*** 2,8 ****
+  #	include <windows.h>
+  #	include <io.h>
+  
+- #ifdef MY_EXPORTS
+  #define MY_API __declspec(dllexport)
+  #else
+  #define MY_API __declspec(dllimport)
+--- 2,8 ----
+  #	include <windows.h>
+  #	include <io.h>
+  
++ #ifdef socketxx_EXPORTS
+  #define MY_API __declspec(dllexport)
+  #else
+  #define MY_API __declspec(dllimport)

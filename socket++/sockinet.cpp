@@ -53,9 +53,15 @@ typedef int socklen_t;
 	EXTERN_C_END
 #else
 #	define socklen_t int
+#ifndef EADDRNOTAVAIL
 # define EADDRNOTAVAIL				WSAEADDRNOTAVAIL
+#endif
+#ifndef EADDRINUSE
 # define EADDRINUSE						WSAEADDRINUSE
+#endif
+#ifndef ENOPROTOOPT
 #	define ENOPROTOOPT					WSAENOPROTOOPT
+#endif
 #endif // !WIN32
 
 void	herror(const char*);

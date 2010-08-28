@@ -3,14 +3,14 @@ SET(TESTSRCS
   # tdunread  
   # tdunwrite.C:(.text+0xc8): undefined reference to `osockunix::osockunix(sockbuf::type, int)'
   #tdunwrite
-	tdinread tdinwrite
+	tdinread 
+# tdinwrite
   # tsunread.C:(.text+0xc5): undefined reference to `sockunixbuf::sockunixbuf(sockbuf::type, int)'
   #	tsunread 
   # tsunwrite.C:(.text+0xc8): undefined reference to `iosockunix::iosockunix(sockbuf::type, int)'
   #tsunwrite
 	tpopentest
 	tnntp
-	tsmtp
   # error: cast from ‘sockinetbuf*’ to ‘unsigned int’ loses precision
   # thostnames
 	twhois
@@ -35,6 +35,7 @@ ${TESTSRCS}
 	tpopen tpopen-lpc tpopen-ftp
 	tsendfiles
         tsig-0
+	tsmtp
 )
 
 ENDIF(WIN32)

@@ -2,7 +2,7 @@
 #	include <windows.h>
 #	include <io.h>
 
-#ifdef MY_EXPORTS
+#ifdef socketxx_EXPORTS
 #define MY_API __declspec(dllexport)
 #else
 #define MY_API __declspec(dllimport)
