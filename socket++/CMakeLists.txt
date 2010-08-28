@@ -4,6 +4,7 @@ SET(PACKAGE "socket++")
 
 # specific
 IF(WIN32)
+  ADD_DEFINITIONS(-DMY_EXPORTS)
 ELSE(WIN32)
   # FIXME this should be try_compile:
   SET(EXTERN_C_BEGIN)
