@@ -16,7 +16,7 @@
 #	include <netinet/in.h>
 #endif // !WIN32
 
-class sockinetaddr: public sockAddr, public sockaddr_in {
+class MY_API sockinetaddr: public sockAddr, public sockaddr_in {
 protected:
   void                setport (const char* sn, const char* pn="tcp");
   void                setaddr (const char* hn);
