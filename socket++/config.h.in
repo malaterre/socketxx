@@ -1,7 +1,7 @@
 /* socket++/config.h.in.  Generated from configure.in by autoheader.  */
 /* Define if extern "C" is needed arround include files */
-#cmakedefine EXTERN_C_BEGIN
-#cmakedefine EXTERN_C_END
+#define EXTERN_C_BEGIN @EXTERN_C_BEGIN@
+#define EXTERN_C_END @EXTERN_C_END@
 
 /* Define either as _sys_siglist or sys_siglist */
 #define SYS_SIGLIST @SYS_SIGLIST@
