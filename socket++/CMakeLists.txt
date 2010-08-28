@@ -44,25 +44,29 @@ INCLUDE_DIRECTORIES(
 SET(libsocket___la_SOURCES
   sockstream.cpp sockstream.h
   sockinet.cpp sockinet.h
+  protocol.cpp protocol.h
+  )
+
+IF(WIN32)
+ELSE()
+  SET(libsocket___la_SOURCES
+    ${libsocket___la_SOURCES}
+    #sockunix.cpp sockunix.h
   pipestream.cpp pipestream.h
   fork.cpp fork.h
-  protocol.cpp protocol.h
   echo.cpp echo.h
   smtp.cpp smtp.h
   ftp.cpp ftp.h
   sig.cpp sig.h
-  )
 
-IF(UNIX)
-  SET(libsocket___la_SOURCES
-    ${libsocket___la_SOURCES}
-    #sockunix.cpp sockunix.h
     )
-ENDIF(UNIX)
+ENDIF()
 
 ADD_LIBRARY(${SOCKETXX_LIBRARY_NAME} ${libsocket___la_SOURCES})
 SET_TARGET_PROPERTIES(${SOCKETXX_LIBRARY_NAME} PROPERTIES ${SOCKETXX_LIBRARY_PROPERTIES} LINK_INTERFACE_LIBRARIES "")
-
+if(WIN32)
+target_link_libraries(${SOCKETXX_LIBRARY_NAME} wsock32)
+endif(WIN32)
 #libsocketincludedir=$(includedir)/socket++
 #libsocketinclude_HEADERS = \
 #	sockstream.h \

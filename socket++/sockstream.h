@@ -47,7 +47,7 @@
 #	define SOCKET int
 #	define SOCKET_ERROR -1
 #else
-#	include <Wininet.h>
+#	include <wininet.h>
 #	pragma comment(lib, "Wininet")
 #endif
 

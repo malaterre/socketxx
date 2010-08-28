@@ -8,28 +8,37 @@ SET(TESTSRCS
   #	tsunread 
   # tsunwrite.C:(.text+0xc8): undefined reference to `iosockunix::iosockunix(sockbuf::type, int)'
   #tsunwrite
-	tsinread tsinwrite
-	tpipe
-	tsockpair
-	tpopen tpopen-lpc tpopen-ftp
 	tpopentest
-	testall
 	tnntp
 	tsmtp
-	tsendfiles
   # error: cast from ‘sockinetbuf*’ to ‘unsigned int’ loses precision
   # thostnames
 	twhois
-	tfork tfork0
-	tsecho tcecho
-	tcsmtp
-        tcftp
 	tbind-0 tbind-1
-        tsig-0
 	test_sockerr
   # error: ‘inet_ntoa’ was not declared in this scope
   #simple_httpd.C
   )
+
+IF(WIN32)
+ELSE(WIN32)
+SET(TESTSRCS
+${TESTSRCS}
+	tsecho tcecho
+	tsockpair
+	tcsmtp
+        tcftp
+	testall
+	tsinread tsinwrite
+	tfork tfork0
+	tpipe
+	tpopen tpopen-lpc tpopen-ftp
+	tsendfiles
+        tsig-0
+)
+
+ENDIF(WIN32)
+
 foreach( test ${TESTSRCS} )
 ADD_EXECUTABLE(${test} ${test}.C)
 target_link_libraries(${test} ${SOCKETXX_LIBRARY_NAME})
